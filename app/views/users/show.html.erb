@@ -3,3 +3,9 @@
 <p><strong>Name:</strong> <%= @user.name %></p>
 <p><strong>ID:</strong> <%= @user.id %></p>
 <p><strong>Created At:</strong> <%= @user.created_at %></p>
+
+<h2>Events Created</h2>
+
+<% @user.created_events.each do |event| %>
+  <p><strong><%= event.location %></p>
+<% end %>
