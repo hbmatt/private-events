@@ -4,6 +4,17 @@
 <p><strong>ID:</strong> <%= @user.id %></p>
 <p><strong>Created At:</strong> <%= @user.created_at %></p>
 
+<h2>Invitations Received</h2>
+<% if @user.received_invitations.none? %>
+  None.
+<% else %>
+  <ul>
+    <% @user.received_invitations.each do |invitation| %>
+      <li><%= link_to invitation.event.location, invitation_path(invitation) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <h2>Events Created</h2>
 <% if @user.created_events.none? %>
   None.

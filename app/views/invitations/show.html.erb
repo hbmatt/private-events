@@ -1,0 +1,8 @@
+<h1>Invitation for Event #<%= @invitation.event_id %></h1>
+
+<p><strong>Recipient:</strong> <%= link_to @invitation.recipient.name, user_path(@invitation.recipient) %></p>
+<p><strong>Sender:</strong> <%= link_to @invitation.invitee.name, user_path(@invitation.invitee) %></p>
+
+<% if current_user == @invitation.recipient && !@invitation.event.attendees.include?(@invitation.recipient) %>
+  <%= button_to "Accept?", action: "accept" %>
+<% end %>

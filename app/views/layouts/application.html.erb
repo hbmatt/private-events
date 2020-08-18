@@ -12,10 +12,11 @@
   <body>
     <div class="navbar">
       <%= link_to "All Events", events_path %> || 
-      <%= link_to "Create Event", new_event_path %> || 
       <% if session[:user_id] == nil %>
         <%= link_to "Sign In", login_url %>
       <% else %>
+        <%= link_to "Create Event", new_event_path %> || 
+        <%= link_to "Send Invitation", new_invitation_path %> || 
         <strong>Signed In:</strong> <%= link_to current_user.name, user_path(current_user) %> || 
         <%= link_to "Sign Out", logout_url %>
       <% end %>

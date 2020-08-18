@@ -1,0 +1,9 @@
+<h1>Send New Invitation</h1>
+
+<%= form_with model: @invitation do |f| %>
+  <%= f.label :event_id, "Event ID:" %>
+  <%= f.text_field :event_id %><BR>
+  <%= f.label :recipient_id, "Recipient ID:" %>
+  <%= f.text_field :recipient_id %><BR>
+  <%= f.submit "Send Invitation" %>
+<% end %>
