@@ -1,3 +1,12 @@
 <h1>Details for Event #<%= @event.id %></h1>
 
 <p><strong>Location:</strong> <%= @event.location %></p>
+<p><strong>Creator:</strong> <%= link_to @event.creator.name, user_path(@event.creator) %>
+
+<h2>List of Attendees</h2>
+
+<ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= link_to attendee.name, user_path(attendee) %><li>
+  <% end %>
+</ul>
