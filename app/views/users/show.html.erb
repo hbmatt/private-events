@@ -5,25 +5,36 @@
 <p><strong>Created At:</strong> <%= @user.created_at %></p>
 
 <h2>Events Created</h2>
-
-<ul>
-  <% @user.created_events.each do |event| %>
-    <li><%= link_to event.location, event_path(event) %></li>
-  <% end %>
-</ul>
+<% if @user.created_events.none? %>
+  None.
+<% else %>
+  <ul>
+    <% @user.created_events.each do |event| %>
+      <li><%= link_to event.location, event_path(event) %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <h2>Previously Attended Events</h2>
 
-<ul>
-  <% @prev_events.each do |event| %>
-    <li><%= link_to event.location, event_path(event) %></li>
-  <% end %>
-</ul>
+<% if @prev_events.none? %>
+  None.
+<% else %>
+  <ul>
+    <% @prev_events.each do |event| %>
+      <li><%= link_to event.location, event_path(event) %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <h2>Upcoming Events</h2>
 
-<ul>
-  <% @upcoming_events.each do |event| %>
-    <li><%= link_to event.location, event_path(event) %></li>
-  <% end %>
-</ul>
+<% if @upcoming_events.none? %>
+  None.
+<% else %>
+  <ul>
+    <% @upcoming_events.each do |event| %>
+      <li><%= link_to event.location, event_path(event) %></li>
+    <% end %>
+  </ul>
+<% end %>

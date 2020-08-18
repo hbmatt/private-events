@@ -5,8 +5,12 @@
 
 <h2>List of Attendees</h2>
 
-<ul>
-  <% @event.attendees.each do |attendee| %>
-    <li><%= link_to attendee.name, user_path(attendee) %><li>
-  <% end %>
-</ul>
+<% if @event.attendees.none? %>
+  None.
+<% else %>
+  <ul>
+    <% @event.attendees.each do |attendee| %>
+      <li><%= link_to attendee.name, user_path(attendee) %></li>
+    <% end %>
+  </ul>
+<% end %>
